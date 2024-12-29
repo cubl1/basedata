@@ -22,5 +22,10 @@ for i in range(1, 11):
     if i % 3 == 1:
         cursor.execute('DELETE FROM Users WHERE user = ?', (f'User{i}',))
 
+cursor.execute('SELECT * FROM Users WHERE age != 60')
+hi = cursor.fetchall()
+for i in hi:
+    print(f'Имя: {i[1]} | Почта: {i[2]} | Возраст: {i[3]} | Баланс: {i[4]}')
+
 connection.commit()
 connection.close()
